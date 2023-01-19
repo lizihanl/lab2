@@ -6,6 +6,27 @@ app.use(express.urlencoded({ extended: true }));
 
 // const cors = require('cors');
 // app.use(cors());
+app.get('/', (req, res) => {
+    res.send(`
+    <!DOCTYPE html>
+<html lang="en" dir="ltr">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<head>
+    <link rel="stylesheet" href="index.css">
+  </head>
+
+<form id="chatbot-form">
+    <label>Enter a message:</label>
+    <input type="text" id="chatbot-input">
+    <button type="submit">Submit</button>
+</form>
+<div id="chatbot-response"></div>
+
+<div id="chat-history"></div>
+</html>
+  `);
+});
 
 app.post('/chatbot', (req, res) => {
     res.header('Access-Control-Allow-Origin', '*');
